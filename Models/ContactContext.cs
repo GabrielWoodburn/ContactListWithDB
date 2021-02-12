@@ -12,6 +12,9 @@ namespace ContactsListDBWoodburn.Models
 
         public DbSet<Comment> Comments { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+            => options.UseSqlServer(@"Server=tcp:cis174gwoodburn.database.windows.net,1433;Initial Catalog=CIS174DB;Persist Security Info=False;User ID=cis174;Password=5630Pass#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Contact>().HasData(
